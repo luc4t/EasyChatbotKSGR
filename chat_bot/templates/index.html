@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}
+Pflege- & Hygienerichtlinien KSGR
+{% endblock %}
+{% block headloadscript %}
+    <script src="{{ url_for('static', filename='assets/js/modal.js') }}"></script>
+    <!-- Import zero-md element definition and auto-register -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+    <!-- Import pdf.js -->
+    <script type="module">
+        import pdfjsDist from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/+esm';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.worker.mjs';
+    </script>
+    <script type="module" src="{{ url_for('static', filename='assets/js/pdfrenderer.js') }}"></script>
+{% endblock %}
+{% block content %}
+<div class="chatBotArea">
+    <div class="chatBubblesContainer" id="chatBubblesContainer"></div>
+    <div class="chatUiInputs">
+        <textarea class="chatTextbox" id="chatTextBox" placeholder="Wonach möchten Sie suchen?"></textarea>
+        <button class="chatSubmit" id="chatSubmitBtn">SUCHEN</button>
+        <button class="chatClear" id="chatClearBtn">X</button>    
+    </div>
+</div>
+
+{% endblock %}
+
+{% block bottomloadscript %}
+<script src="{{ url_for('static', filename='assets/js/chat.js') }}"></script>
+<modal-dialog id="PdfViewer">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="close">&times;</div>
+            <h2>PDF Viewer</h2>
+        </div>
+        <div class="modal-body">
+        </div>
+    </div>
+</modal-dialog>
+{% endblock %}

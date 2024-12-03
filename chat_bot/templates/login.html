@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}
+Login to Pflege- & Hygienerichtlinien KSGR
+{% endblock %}
+{% block headloadscript %}
+{% endblock %}
+{% block content %}
+
+{% if message %}
+<div class="loginErrorBox">{{ message }}</div>
+{% endif %}
+<div class="loginBox">
+  <form action="#" method="post">
+    <div class="formGroup">
+      <input type="text" name="username" placeholder="Benutzername" />
+    </div>
+    <div class="formGroup">      
+      <input type="password" name="password" placeholder="Passwort" />
+    </div>
+    <div class="formGroup">
+      <button class="loginSubmit" type="submit">Einloggen</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
+{% block bottomloadscript %}
+{% endblock %}
